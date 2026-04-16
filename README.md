@@ -1,115 +1,97 @@
 # 📊 Crypto-Market-Sentiment-Vs-Trader-Risk-Behavior-Study
 
 
+
 ## 🔹 Overview
 
-This project analyzes how market sentiment (Fear, Greed, Neutral) influences trader performance and behavior using Hyperliquid trading data and Bitcoin sentiment data.
-
-The goal is to understand whether traders change their risk-taking behavior and profitability under different market emotions.
+This project analyzes how market sentiment (Fear, Greed, Neutral) affects trader performance and behavior using Hyperliquid trading data.
 
 ---
 
-## 🔹 Problem Statement
+## 🔹 Methodology
 
-* Does trader performance (PnL, win rate) vary across Fear vs Greed markets?
-* Do traders change behavior (trade frequency, position size, long/short bias) based on sentiment?
-* Can we derive actionable trading strategies from these patterns?
+* Merged trading data with sentiment data using date
+* Created features:
 
----
-
-## 🔹 Dataset Description
-
-### 1. Sentiment Data
-
-* `date` → trading day
-* `classification` → Fear / Greed / Neutral
-* `value` → sentiment score (0–100)
-
-### 2. Trader Data (Hyperliquid)
-
-* `Account` → trader ID
-* `Size USD` → position size (trade exposure)
-* `Side` → BUY (long) / SELL (short)
-* `Closed PnL` → profit or loss per trade
-* `Timestamp IST` → trade time
-
----
-
-## 🔹 Approach
-
-### Data Processing
-
-* Converted timestamps to date format
-* Merged sentiment and trading data on date
-
-### Feature Engineering
-
-* Created sentiment groups (Fear / Greed / Neutral)
-* Derived:
-
-  * Win rate
-  * Loss rate (drawdown proxy)
+  * Win rate, loss rate
   * Trade frequency
   * Position size (Size USD)
   * Long/Short indicators
+* Segmented traders:
+
+  * High vs Low exposure
+  * Frequent vs Infrequent traders
+* Built:
+
+  * Simple ML model for profitability prediction
+  * K-Means clustering for trader grouping
 
 ---
 
-## 🔹 Key Analysis
+## 📊 Key Insights
 
-### 1. Performance vs Sentiment
-
-* Compared average PnL, win rate, and loss rate across sentiment groups
-
-### 2. Behavioral Analysis
-
-* Position size changes across sentiment
-* Trading frequency patterns
-* Long vs Short bias
-
-### 3. Trader Segmentation
-
-* High vs Low exposure traders
-* Frequent vs Infrequent traders
+* Fear markets → higher profit but lower win rate (high risk, high reward)
+* Greed markets → more consistent performance
+* Traders increase position sizes during Fear and Greed
+* Trading activity is highest during Fear
+* Long/Short bias remains mostly balanced
 
 ---
 
-## 🔹 Key Insights
+## 💡 Strategy Recommendations
 
-* Fear markets generate **higher profits but lower win rates** → high risk, high reward
-* Greed markets show **more consistent performance**
-* Traders take **larger positions during Fear and Greed**
-* Trading activity is **highest during Fear**
-* Long/Short bias remains mostly balanced → direction is not the main driver
+1. Limit position sizes during Fear and Greed to reduce risk
+2. Avoid overtrading during Greed markets
 
 ---
 
-## 🔹 Strategy Recommendations
+## 🧠 Conclusion
 
-### 1. Risk Control Strategy
-
-Limit position sizes during Fear and Greed periods to reduce losses from aggressive trading behavior.
-
-### 2. Trade Frequency Strategy
-
-Allow higher trading during Fear (more opportunities), but reduce overtrading during Greed to avoid emotional decisions.
+Market sentiment mainly affects trader behavior (risk and activity), not trade direction. Controlling risk and avoiding emotional trading improves performance.
 
 ---
 
-## 🔹 Tools & Technologies
+## ⚙️ Setup Instructions
 
-* Python
-* Pandas
-* NumPy
-* Matplotlib
-* Seaborn
-* Scikit-learn
+Install required libraries:
 
----
-
-## 🔹 Project Structure
-
+```bash
+pip install pandas numpy matplotlib seaborn scikit-learn
 ```
+
+---
+
+## ▶️ How to Run
+
+1. Download or clone the repository:
+
+```bash
+git clone https://github.com/your-username/trader-sentiment-analysis.git
+```
+
+2. Go to the project folder:
+
+```bash
+cd trader-sentiment-analysis
+```
+
+3. Open Jupyter Notebook:
+
+```bash
+jupyter notebook
+```
+
+4. Open and run:
+
+```plaintext
+trader_sentiment_analysis.ipynb
+```
+
+---
+
+## 📁 Project Structure
+
+```plaintext
 trader-sentiment-analysis/
 │
 ├── data/
@@ -124,9 +106,8 @@ trader-sentiment-analysis/
 
 ---
 
-## 🔹 Conclusion
-
-Market sentiment significantly impacts trader behavior, especially in terms of risk-taking (position size and trade frequency). However, trade direction (long vs short) remains relatively stable. Effective strategies should focus on controlling risk and avoiding emotional trading during extreme sentiment conditions.
+## ⭐ If you found this useful, consider giving a star!
+short) remains relatively stable. Effective strategies should focus on controlling risk and avoiding emotional trading during extreme sentiment conditions.
 
 ---
 
